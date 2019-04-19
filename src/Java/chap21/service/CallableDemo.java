@@ -11,6 +11,7 @@ public class CallableDemo {
         while (n-- > 0) {
             results.add(exec.submit(new TaskWithResult(n)));
         }
+        exec.shutdown();
         for (Future<String> f : results) {
             try {
                 System.out.println(f.get());
